@@ -1,0 +1,16 @@
+- name: orchestrator
+  box: "elastic/oel-6-x86_64"
+  hostname: orchestrator.local
+  ip: 10.10.10.101
+  cpus: 2
+  memory: 1024
+  ports:
+    - port: "app"
+      host: 8081
+      guest: 8081
+  mount:
+    - source: ../
+      destination: /global
+      id: orchestrator
+  provision: provision/box.sh
+  group: oracle
